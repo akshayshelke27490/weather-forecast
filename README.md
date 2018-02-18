@@ -6,13 +6,13 @@ Forecast of weather for next 5 days with every 3 hours detailed information show
 
 You can run the project by clicking on following link :
 
-http://weather-forecast-assignment.herokuapp.com/
+* [Weather Forecast](http://weather-forecast-assignment.herokuapp.com/)
 
 ## Deployment
 
 Website is deployed on heroku server
 
-* http://heroku.com
+* [Heroku](http://heroku.com)
 
 ## Built With
 
@@ -34,6 +34,6 @@ This project is licensed under the MIT License
 
 ## Acknowledgments
 
-* Code used from mostly research and Stackoverflow 
+* Code used from mostly research and Stackoverflow
 * Basic syntax taken from W3school.
 * etc
