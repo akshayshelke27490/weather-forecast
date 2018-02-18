@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <title>Weather Report</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
+<script src='js/homeCtrl.js'></script>
+<script src="js/skycons.js"></script>
+    <link rel="stylesheet" href="css/jk-carousel.min.css" />
+    <script src="js/jk-carousel.min.js"></script>
+</head>
+<body ng-app="weatherReport" ng-controller="homeCtrl"
+ng-style="{'background': 'url(./images/' + weatherCondition + '.jpg)'}"
+>
+
+<div class="main-agileits">
+  <h1>Weather Report Widget</h1>
+
+  <!-- Home Page  -->
+  <div class="main-wthree-row" ng-show="!details">
+      <div class="agileinfo-text">
+        <div class="date">
+            <!-- Date-JavaScript -->
+            <p>{{homeDay}}<br/>{{homeDate}}</p>
+            <!-- //Date-JavaScript -->
+        </div>
+        <h2>{{temperature}}<span>°</span></h2>
+        <h4>{{city}}</h4>
+        <h6>{{currentWeatherStatus}}</h6>
+
+        <button class="show-details" ng-click="showDetails()" >Show Details</button>
+      </div>
+  </div>
+  <!-- End Home Screen-->
+  <!-- Details Screen-->
+  <div ng-show="details">
+    <div>
+      <img ng-click="showDetails()" class="backButton" src="./images/back_button.png" />
+    </div>
+    <div>
+          <div ng-repeat="dayWeather in weatherDetailsListing" class="mainTempContainer">
+                <div>
+                    <div class="temperatureWrapper">
+                        <h2 class="whiteColorFont" style="font-size: 2em">{{dayWeather.day}}</h2>
+                        <h4 class="whiteColorFont">{{dayWeather.date}}</h4>
+                        <h4 class="whiteColorFont">{{dayWeather.dateGroup[1]}}</h4>
+                    </div>
+                    <div class="temperatureWrapper" style="width: 30%;">
+                          <h2 class="tempInDegree">{{dayWeather.temperature}}<span>°</span></h2>
+                    </div>
+                    <div class="temperatureWrapper">
+                        <h4 class="temperatureMinClass">Min Temp: {{dayWeather.temp_min}}<span>°</span></h4>
+                        <h4 class="temperatureMinClass">Max Temp: {{dayWeather.temp_max}}<span>°</span></h4>
+                        <h4 class="temperatureMinClass">Humidity: {{dayWeather.humidity}}%</h4>
+                    </div>
+                </div>
+          </div>
+    </div>
+</div>
+
+</body>
+</html>
