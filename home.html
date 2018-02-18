@@ -29,7 +29,7 @@ ng-style="{'background': 'url(./images/' + weatherCondition + '.jpg)'}"
         <h4>{{city}}</h4>
         <h6>{{currentWeatherStatus}}</h6>
 
-        <button class="show-details" ng-click="showDetails()" >Show Details</button>
+        <button class="show-details" ng-click="showDetails()" ng-disabled="btnDisable" >Show Details</button>
       </div>
   </div>
   <!-- End Home Screen-->

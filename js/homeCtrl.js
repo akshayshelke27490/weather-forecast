@@ -29,6 +29,7 @@ app.controller('homeCtrl', function($scope, $http, $window) {
           $scope.temperature = parseFloat((response.data.list[0].main.temp-273.15).toFixed(1));
           $scope.currentWeatherStatus = response.data.list[0].weather[0].main;
           $scope.nextFiveDays = response.data.list;
+          $scope.btnDisable = false;
 
           if(response.data.list[0].weather[0].main == 'Clear'){
               $scope.weatherCondition = 'clear_sky';
@@ -54,6 +55,9 @@ app.controller('homeCtrl', function($scope, $http, $window) {
           }
           $scope.weatherDetailsListing = objWeather;
       }, function error(response) {
+          $scope.temperature = '30';
+          $scope.weatherCondition = 'clear_sky';
+          $scope.btnDisable = true;
           $window.alert("Some error has beed occoured. Please Try Again");
       });
 
