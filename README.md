@@ -12,7 +12,7 @@ http://weather-forecast-assignment.herokuapp.com/
 
 Website is deployed on heroku server
 
-* [Heroku] (http://heroku.com)
+* http://heroku.com
 
 ## Built With
 
@@ -21,7 +21,7 @@ Website is deployed on heroku server
 
 ## Versioning
 
-We use [Githun](http://github.com/) for versioning.
+We use [Github](http://github.com/) for versioning.
 For the versions available, see the [tags on this repository](https://github.com/akshayshelke27490/weather-forecast).
 
 ## Authors
@@ -30,10 +30,10 @@ For the versions available, see the [tags on this repository](https://github.com
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License
 
 ## Acknowledgments
 
-* Code used from mostly Stackoverflow
+* Code used from mostly research and Stackoverflow 
 * Basic syntax taken from W3school.
 * etc
