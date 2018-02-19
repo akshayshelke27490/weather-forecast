@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather Report</title>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
 <script src='js/homeCtrl.js'></script>
-<script src="js/skycons.js"></script>
-    <link rel="stylesheet" href="css/jk-carousel.min.css" />
-    <script src="js/jk-carousel.min.js"></script>
+
 </head>
 <body ng-app="weatherReport" ng-controller="homeCtrl"
-ng-style="{'background': 'url(./images/' + weatherCondition + '.jpg)'}"
+ng-style="{'background': 'url(./images/' + weatherCondition + ')'}"
 >
 
 <div class="main-agileits">
@@ -42,14 +40,14 @@ ng-style="{'background': 'url(./images/' + weatherCondition + '.jpg)'}"
           <div ng-repeat="dayWeather in weatherDetailsListing" class="mainTempContainer">
                 <div>
                     <div class="temperatureWrapper">
-                        <h2 class="whiteColorFont" style="font-size: 2em">{{dayWeather.day}}</h2>
+                        <h2 class="whiteColorFont day">{{dayWeather.day}}</h2>
                         <h4 class="whiteColorFont">{{dayWeather.date}}</h4>
                         <h4 class="whiteColorFont">{{dayWeather.dateGroup[1]}}</h4>
                     </div>
-                    <div class="temperatureWrapper" style="width: 30%;">
+                    <div class="temperatureWrapper degree">
                           <h2 class="tempInDegree">{{dayWeather.temperature}}<span>°</span></h2>
                     </div>
-                    <div class="temperatureWrapper">
+                    <div class="temperatureWrapper tempDetails">
                         <h4 class="temperatureMinClass">Min Temp: {{dayWeather.temp_min}}<span>°</span></h4>
                         <h4 class="temperatureMinClass">Max Temp: {{dayWeather.temp_max}}<span>°</span></h4>
                         <h4 class="temperatureMinClass">Humidity: {{dayWeather.humidity}}%</h4>

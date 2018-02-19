@@ -19,12 +19,13 @@ app.controller('homeCtrl', function($scope, $http, $window) {
       var countryId = 'in'; // India
       var appId = '54000cdf5baa13daa52753738be19ba4'; // appId created on account akshayshelke
       var apiUrl = 'http://api.openweathermap.org/data/2.5/forecast?q='+city+','+countryId+'&appid='+appId;
-      var objWeather = {};
+      var objWeather = [];
 
       $http({
         method : "GET",
         url: apiUrl
       }).then(function success(response) {
+        console.log(response.data);
           $scope.city = response.data.city.name;
           $scope.temperature = parseFloat((response.data.list[0].main.temp-273.15).toFixed(1));
           $scope.currentWeatherStatus = response.data.list[0].weather[0].main;
@@ -32,17 +33,20 @@ app.controller('homeCtrl', function($scope, $http, $window) {
           $scope.btnDisable = false;
 
           if(response.data.list[0].weather[0].main == 'Clear'){
-              $scope.weatherCondition = 'clear_sky';
+              $scope.weatherCondition = 'clear_sky.jpg';
           }else if(response.data.list[0].weather[0].main == 'Rain'){
-              $scope.weatherCondition = 'rainy';
+              $scope.weatherCondition = 'rainy.jpg';
           }else if(response.data.list[0].weather[0].main == 'Extreme'){
-              $scope.weatherCondition = 'cloudy';
-          } else {
-              $scope.weatherCondition = 'sunny_day';
+              $scope.weatherCondition = 'cloudy.jpg';
+          } else if(response.data.list[0].weather[0].main == 'Clouds'){
+              $scope.weatherCondition = 'sunny_day.jpg';
+          }else{
+              $scope.weatherCondition = 'sunny_day.jpg';
           }
 
           for(var i = 0; i < response.data.list.length-1; i++){
-              objWeather[i] = {
+
+              objWeather.push({
                 city: response.data.city.name,
                 date:new Date(response.data.list[i].dt_txt).getDate()+' '+montharray[new Date(response.data.list[i].dt_txt).getMonth()]+' '+year,
                 day: dayarray[new Date(response.data.list[i].dt_txt).getDay()],
@@ -51,15 +55,34 @@ app.controller('homeCtrl', function($scope, $http, $window) {
                 temp_max: parseFloat((response.data.list[i].main.temp_max-273.15).toFixed(1)),
                 temp_min: parseFloat((response.data.list[i].main.temp_min-273.15).toFixed(1)),
                 humidity: response.data.list[i].main.humidity
-              }
+              });
           }
-          $scope.weatherDetailsListing = objWeather;
+
+          // Logic for collecting the single day weather and wrap it in another array
+          var uniqueDateArr = [];
+          var newArr = objWeather.filter((item1)=>{
+              var count = 0;
+              uniqueDateArr.map((item2)=>{
+                  if(item2==item1.date){
+                    count++;
+                  }
+              })
+              if(count==0){
+                  uniqueDateArr.push(item1.date);
+                  return true;
+              } else{
+                  return false
+              }
+          });
+          $scope.weatherDetailsListing = newArr;
+
       }, function error(response) {
           $scope.temperature = '30';
-          $scope.weatherCondition = 'clear_sky';
+          $scope.weatherCondition = 'clear_sky.jpg';
           $scope.btnDisable = true;
           $window.alert("Some error has beed occoured. Please Try Again");
       });
+
 
       // Toggle the Detail View
       $scope.showDetails = function() {

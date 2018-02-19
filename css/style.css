@@ -36,6 +36,7 @@ body {
 	  -ms-background-size: cover;
     background-size: cover;
 }
+
 h1 {
     font-size: 3em;
     text-align: center;
@@ -44,7 +45,7 @@ h1 {
 }
 /*-- main --*/
 .main-agileits{
-    padding: 2em 0 0;
+    /*padding: 2em 0 0;*/
 }
 .main-wthree-row {
     width: 25%;
@@ -150,7 +151,7 @@ h1 {
 }
 @media(max-width:991px){
 .main-agileits {
-    padding: 2em 0 0;
+    /*padding: 2em 0 0;*/
 }
 h1 {
     font-size: 2.6em;
@@ -268,7 +269,7 @@ h1 {
   margin-left: 20px;
 }
 .mainTempContainer{
-  margin: 10px;
+  margin: 7px;
   background: rgba(0, 0, 0, 0.34);
   height: 100px;
   display:block;
@@ -281,7 +282,8 @@ h1 {
 }
 
 .tempInDegree{
-  font-size: 4em;
+/*  font-size: 4em; */
+  font-size: 5vw;
   font-weight: 900;
   color: rgba(255, 215, 1, 0.59);
 }
@@ -304,7 +306,29 @@ h1 {
   float:left;
   margin: 10px;
 }
-::-webkit-scrollbar
-width: 0px
+::-webkit-scrollbar{
+    display: none;
+}
+
+.degree{
+  width: 30%
+}
+
+.day {
+  font-size: 2vw;
+}
+
+@media (max-width: 500px) {
+  .degree{
+    width: 17%
+  }
+  .day {
+    font-size: 5vw;
+  }
+  .tempDetails{
+      width: 35%
+  }
+}
+
 
 /*-- //responsive-design --*/
